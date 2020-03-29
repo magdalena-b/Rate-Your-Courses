@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <div *ngIf="havingCourse()" class="row">
+      <p class="lead col-12 text-center">Moje kursy</p>
+  </div>
+  <div *ngIf="!havingCourse()" class="row">
+      <p class="lead col-12 text-center">Nie jesteś zapisany na żaden kurs</p>
+  </div>
+</div>
+
+
+<table>
+  <tr *ngFor= "let course of courses; let i = index; let odd = odd; let even = even"
+  [class.odd] = "odd" [class.even] = "even">
+    <td> {{i + 1}} </td>
+    <td> Nazwa kursu: {{course.name}} </td>
+    <td> <app-rating [rating]='course.rating' [itemId]='course.id' (ratingClick)='ratingComponentClick($event)'> </app-rating> </td>
+
+
+    <td>  <button class="btn btn-dark"> <a routerLink = "/course-info/{{course.id}}" > Show info </a> </button> </td>
+
+  </tr>
+
+
+</table>

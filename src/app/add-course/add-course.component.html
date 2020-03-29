@@ -1,0 +1,57 @@
+<button> Add course </button>
+
+<!--
+<form [formGroup] = "course" (ngSubmit) = "onAdd()">
+<div class = "form-group">
+  <label> Name</label>
+  <input type="text" class = "form-control"
+  formControlName = "name">
+</div>
+</form>
+-->
+
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <div class="form-group">
+      <label>Nazwa </label>
+      <input type="text"
+             class="form-control"
+             formControlName="name">
+    </div>
+
+    <div class="form-group">
+      <label> Liczba punktów ECTS </label>
+      <input type="text"
+             class="form-control"
+             formControlName="ECTS">
+    </div>
+
+  <div class="form-group">
+    <label> Semestr  </label>
+    <input type="text"
+           class="form-control"
+           formControlName="semester">
+  </div>
+
+  <div class="form-group">
+    <label> Limit studentów </label>
+    <input type="text"
+           class="form-control"
+           formControlName="limit">
+  </div>
+
+  <div class="form-group">
+    <label>Forma zajęć </label>
+    <select class="form-control"
+    formControlName="form">
+      <option value="">Wybierz formę zajęć</option>
+      <option *ngFor="let form of formsOfCourse"
+            [value]="form">
+            {{form}}
+    </option>
+    </select>
+  </div>
+</fieldset>
+<button class="btn btn-success" type="submit">Dodaj kurs</button>
+
+</form>

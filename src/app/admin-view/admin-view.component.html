@@ -1,0 +1,29 @@
+
+
+<input [(ngModel)]="searchText" placeholder="Wyszukaj po nazwie">
+<div *ngFor="let course of courses | filterByName: searchText"></div>
+
+  <input [(ngModel)]="searchText1" placeholder="Wyszukaj po ECTSach">
+  <div *ngFor="let course of courses | filterByEcts: searchText"></div>
+  
+  <input [(ngModel)]="searchText2" placeholder="Wyszukaj po ocenie">
+  <div *ngFor="let course of courses | filterByRating: searchText"></div>
+
+
+<table>
+  <tr *ngFor= "let course of courses | filterByName: searchText | filterByEcts: searchText1 | filterByRating: searchText2; let i = index; let odd = odd; let even = even"
+  [class.odd] = "odd" [class.even] = "even">
+    <td> {{i + 1}} </td>
+    <td> Nazwa kursu: {{course.name}} </td>
+    <td> <app-delete-course> </app-delete-course> <button class="btn btn-danger" (click) = "onClickDelete(course.id)"> Usuń kurs </button>  </td>
+
+    <td>  <button class="btn btn-dark"> <a routerLink = "/edit-course/{{course.id}}" > Edytuj kurs </a> </button> </td>
+
+
+
+  </tr>
+
+
+</table>
+
+<app-add-course> </app-add-course>

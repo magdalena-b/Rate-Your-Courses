@@ -1,0 +1,20 @@
+.body{
+  padding-left: 30%;
+}
+
+.odd{
+  background-color: #306a3a;
+}
+
+.even{
+   background-color: #758269;
+}
+
+.list-group-item{
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.table{
+  padding-left: 100px;
+}

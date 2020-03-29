@@ -1,0 +1,41 @@
+
+
+<input [(ngModel)]="searchText" placeholder="Wyszukaj po nazwie">
+<div *ngFor="let course of courses | filterByName: searchText"></div>
+
+  <input [(ngModel)]="searchText1" placeholder="Wyszukaj po ECTSach">
+  <div *ngFor="let course of courses | filterByEcts: searchText"></div>
+  
+  <input [(ngModel)]="searchText2" placeholder="Wyszukaj po ocenie">
+  <div *ngFor="let course of courses | filterByRating: searchText"></div>
+
+
+<table>
+  <tr *ngFor= "let course of courses | filterByName: searchText | filterByEcts: searchText1 | filterByRating: searchText2; let i = index; let odd = odd; let even = even"
+  [class.odd] = "odd" [class.even] = "even" class = "list-group-item flex-column">
+    <td> {{i + 1}}.  </td>
+    <td> {{course.name}} </td>
+
+    <td>  <button class="btn btn-dark"> <a routerLink = "/course-info/{{course.id}}" > Show info </a> </button> </td>
+
+  </tr>
+
+</table>
+
+<!-- dodac atrybuty cols i row [+ tile] -->
+<!--
+<mat-grid-list cols="2">
+<mat-grid-tile *ngFor= "let course of courses | filterByName: searchText | filterByEcts: searchText1 | filterByRating: searchText2; let i = index; let odd = odd; let even = even"
+[colspan]="tile.cols"
+[rowspan]="tile.rows"
+[class.odd] = "odd" [class.even] = "even" class = "list-group-item flex-column">
+   {{i + 1}}. 
+   {{course.name}}
+
+    <button> <a routerLink = "/course-info/{{course.id}}" > Show info </a> </button>
+
+</mat-grid-tile>
+</mat-grid-list>
+-->
+
+

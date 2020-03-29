@@ -1,0 +1,28 @@
+<div class = "jumbotron">
+<table>
+
+<!--
+<tr> <app-rating [rating]='course.rating' [itemId]='course.id' (ratingClick)='ratingComponentClick($event)'> </app-rating> </tr>
+-->
+
+
+<tr>
+  <th> Forma </th>
+  <th> Semestr </th>
+  <th> Limit studentów </th>
+  <th> Ilość wolnych miejsc </th>
+  <th> Ocena </th>
+</tr>
+
+<tr>
+  <td> {{course.form}} </td>
+  <td> {{course.semester}} </td>
+  <td> {{course.limit}} </td>
+  <td> {{ course.limit - course.numberOfStudents }} </td>
+  <td> {{course.rating}} </td>
+</tr>
+
+</table>
+</div>
+
+<a routerLink="/my-courses" class="btn btn-outline-secondary ml-2"(click)="joinCourse()"style="cursor: pointer;">Zapisz się na kurs</a>
